@@ -1,5 +1,5 @@
 <style>
-<?php include "tickets.css"; ?>
+    <?php include "tickets.css"; ?>
 </style>
 <h2>Tickets</h2>
 
@@ -14,8 +14,15 @@
         <h5>User</h5>
         <input type="text" name="user" list="users" required>
         <datalist id="users">
-            <option value="1">Daniel Melin</option>
-            <option value="2">Cathrine Mångs</option>
+            <?php
+            $sql = "select * from users order by user_name asc";
+            $result = $db->query($sql);
+            while ($row = $result->fetchArray(SQLITE3_ASSOC)) :
+            ?>
+                <option value="<?= $row["ID"] ?>"><?= $row["user_name"] ?> <span><?= $row["user_phone"] ?></span> <span><?= $row["user_email"] ?></span></option>
+            <?php
+            endwhile;
+            ?>
         </datalist>
     </label>
     <hr>

@@ -2,11 +2,21 @@
   background: #fff;
   border-radius: 5px;
   padding: 20px;
-  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 0 40px 0;
+
+  h3 {
+    width: 100%;
+  }
 
   label {
     display: flex;
-    padding: 0 0 10px 0;
+    padding: 15px;
+    width: calc(50% - 30px);
+    align-items: center;
 
     h5 {
       width: 150px;
@@ -19,6 +29,15 @@
       border-radius: 3px;
     }
   }
+  button {
+    background: #0a0;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px 0;
+    cursor: pointer;
+  }
 }
 #tickets {
   .ticket {
@@ -30,6 +49,7 @@
 
     div {
       padding: 10px;
+      flex: 1;
     }
     &__id {
       width: 120px;

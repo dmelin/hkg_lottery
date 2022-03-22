@@ -35,5 +35,30 @@ if (isset($_POST["action"])) {
             endif;
             header("location: /tickets");
             break;
+        case "save_user":
+            if ($_POST["ID"] == "0") :
+                $date = gmdate("Y-m-d H:i:s");
+                $sql = "insert into users
+                (user_name, user_email, user_phone, user_created)
+                values
+                ('{$_POST["name"]}', '{$_POST["email"]}', '{$_POST["phone"]}', '$date')
+                ";
+                $db->query($sql);
+                
+                $sql = "select ID from users order by ID desc limit 0, 1";
+                $lastID = $db->query($sql)->fetchArray(SQLITE3_ASSOC);
+                $ID = $lastID["ID"];
+            else:
+                $sql = "update users set
+                user_name = '{$_POST["name"]}',
+                user_email = '{$_POST["email"]}',
+                user_phone = '{$_POST["phone"]}'
+                where ID = {$_POST["ID"]}";
+                $db->query($sql);
+                $ID = $_POST["ID"];
+            endif;
+
+            header("location: /users/".$ID);
+            break;
     endswitch;
 }

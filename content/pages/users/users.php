@@ -1,3 +1,6 @@
+<style>
+<?php include "users.css"; ?>
+</style>
 <h2>Users</h2>
 
 <form id="new_user" action="" method="post">
@@ -27,22 +30,23 @@
 
     if ($user_edit) :
     ?>
+    <input type="hidden" name="action" value="save_user">
+    <input type="hidden" name="ID" value="<?= $user["ID"] ?>">
     <label>
         <h5>User name</h5>
-        <input type="text" name="name" value="<?= $user["user_name"] ?>">
+        <input type="text" name="name" value="<?= $user["user_name"] ?>" required>
     </label>
     <label>
         <h5>Email</h5>
-        <input type="text" name="email" value="<?= $user["user_email"] ?>">
+        <input type="text" name="email" value="<?= $user["user_email"] ?>" required>
     </label>
     <label>
         <h5>User phone</h5>
-        <input type="text" name="phone" value="<?= $user["user_phone"] ?>">
+        <input type="text" name="phone" value="<?= $user["user_phone"] ?>" required>
     </label>
+    <button type="submit">Save</button>
     <?php endif; ?>
 </form>
-
-<hr>
 
 <div id="users">
     <?php

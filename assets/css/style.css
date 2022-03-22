@@ -49,3 +49,8 @@ a {
 a:hover {
   color: #036;
 }
+
+datalist span {
+  opacity: 0.5;
+  display: none;
+}
