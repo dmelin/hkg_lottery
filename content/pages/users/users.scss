@@ -1,0 +1,65 @@
+#new_user {
+    background: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 0 40px 0;
+    box-sizing: border-box;
+
+    h3 {
+        width: 100%;
+    }
+
+    label {
+        display: flex;
+        padding: 15px;
+        flex: 1;
+        align-items: center;
+
+        h5 {
+            width: 120px;
+            margin: 0;
+            padding: 0;
+        }
+        input {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 3px;
+        }
+    }
+    button {
+        background: #0a0;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        width: 100%;
+        padding: 10px 0;
+        cursor: pointer;
+    }
+}
+
+#users {
+    .user {
+        display: flex;
+
+        &:nth-child(even) {
+            background: #fff;
+        }
+        div {
+            padding: 10px;
+        }
+
+        &__name {
+            width: 250px;
+        }
+        &__email {
+            width: 250px;
+        }
+        &__created {
+            flex: 1;
+            text-align: right;
+        }
+    }
+}
