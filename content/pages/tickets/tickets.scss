@@ -1,0 +1,42 @@
+#new_ticket {
+  background: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+
+  label {
+    display: flex;
+    padding: 0 0 10px 0;
+
+    h5 {
+      width: 150px;
+      margin: 0;
+      padding: 0;
+    }
+    input {
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 3px;
+    }
+  }
+}
+#tickets {
+  .ticket {
+    &:nth-child(even) {
+      background: #fff;
+    }
+
+    display: flex;
+
+    div {
+      padding: 10px;
+    }
+    &__id {
+      width: 120px;
+    }
+    &__drafts {
+      text-align: right;
+      width: 50px;
+    }
+  }
+}

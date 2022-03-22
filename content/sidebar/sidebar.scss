@@ -1,0 +1,30 @@
+#sidebar {
+    background: #eee;
+    width: 200px;
+    position: relative;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+
+            a {
+                display: flex;
+                padding: 15px 20px;
+                text-decoration: none;
+                color: #333;
+
+                i {
+                    width: 40px;
+                }
+
+                &:hover {
+                    background: #333;
+                    color: #ddd;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+#dashboard #tickets .ticket {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#dashboard #tickets .ticket:nth-child(even) {
+  background: #fff;
+}
+#dashboard #tickets .ticket div {
+  padding: 10px;
+}
+#dashboard #tickets .ticket__id {
+  width: 120px;
+}
+#dashboard #tickets .ticket__drafts {
+  text-align: right;
+  width: 50px;
+}
