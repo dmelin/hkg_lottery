@@ -63,3 +63,26 @@
         }
     }
 }
+
+#tickets {
+    .ticket {
+      &:nth-child(even) {
+        background: #fff;
+      }
+  
+      display: flex;
+  
+      div {
+        padding: 10px;
+        flex: 1;
+      }
+      &__id {
+        width: 120px;
+      }
+      &__drafts {
+        text-align: right;
+        width: 50px;
+      }
+    }
+  }
+  

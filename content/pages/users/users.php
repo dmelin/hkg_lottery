@@ -47,7 +47,52 @@
     <button type="submit">Save</button>
     <?php endif; ?>
 </form>
+<div id="tickets">
+    <?php
+    $sql = "
+    select
+        tickets.ID as ticketID,
+        tickets.ticket_created as ticketCreated,
+        users.user_name as userName,
+        users.user_phone as userPhone,
+        users.user_email as userEmail
+    from tickets
+    
+    join users on users.ID = tickets.user_ID
+    
+    where users.ID = {$user["ID"]}
 
+    order by tickets.ticket_created desc
+    ";
+    $result = $db->query($sql);
+    while ($row = $result->fetchArray(SQLITE3_ASSOC)) :
+        $sql = "select count(ID) as draftCount from drafts where ticket_ID = '{$row["ticketID"]}'";
+        $draft = $db->query($sql)->fetchArray(SQLITE3_ASSOC);
+    ?>
+        <div class="ticket">
+            <div class="ticket__id">
+                <?= $row["ticketID"] ?>
+            </div>
+            <div class="ticket__date" title="<?= $row["ticketCreated"] ?>">
+                <?= date("Y-m-d", strtotime($row["ticketCreated"])) ?>
+            </div>
+            <div class="ticket__name">
+                <?= $row["userName"] ?>
+            </div>
+            <div class="ticket__email">
+                <?= $row["userEmail"] ?>
+            </div>
+            <div class="ticket__phone">
+                <?= $row["userPhone"] ?>
+            </div>
+            <div class="ticket__drafts">
+                <?= $draft["draftCount"] ?>
+            </div>
+        </div>
+    <?php
+    endwhile;
+    ?>
+</div>
 <div id="users">
     <?php
     $sql = "select * from users order by user_name asc";

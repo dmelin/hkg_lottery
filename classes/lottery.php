@@ -39,8 +39,8 @@ class lottery
 
         $ratio = 0.05;
         $wins = ceil($numPrices * $ratio);
-        if ($wins < 4) { $wins = 4; }
-        if ($wins > 10) { $wins = 10; }
+        // if ($wins < 4) { $wins = 4; }
+        // if ($wins > 10) { $wins = 10; }
         
         for ($wins; $wins > 0; $wins--) {
             $winners = ($wins > 1) ? 4 : 1;
